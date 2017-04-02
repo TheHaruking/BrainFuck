@@ -2,7 +2,7 @@ class BrainFuck {
 // define
 public:
 	static const int MAX = 2048;
-	enum Mode { ALL, STEP, AUTO, AUTO_START, ESC };
+	enum Mode { END, BEGIN, ALL, STEP, AUTO, AUTO_START, ESC };
 private:
 
 // member
@@ -65,10 +65,14 @@ public:
 	int  Mem()			{ return mem;							}
 	int  Out()			{ return out;							}
 	int  Inn()			{ return inn;							}
-	int  Cmdarr(int n)	{ return cmdarr[n];						}
+	char Cmdarr(int n)	{ return cmdarr[n];						}
 	int  Memarr(int n)	{ return memarr[n];						}
 	int  Outarr(int n)	{ return outarr[n];						}
 	int  Innarr(int n)	{ return innarr[n];						}
+	const char* Cmdarr(){ return (const char *)cmdarr;				}
+	const int* Memarr()	{ return (const int  *)memarr;				}
+	const int* Outarr()	{ return (const int  *)outarr;				}
+	const int* Innarr()	{ return (const int  *)innarr;				}
 	bool IsRunning()	{ return (cmdarr[cmd]) && (cmd <= max);	}
 	bool IsAutoRunning(){ return isAutoRunning;					}
 
